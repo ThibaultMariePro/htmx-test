@@ -8,24 +8,26 @@
         integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
         crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
     <title>HTMX TESTING</title>
 </head>
 
 <body>
-
+    <li
+        class="flex items-center bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold hover:text-indigo-700">
+        <span class="material-symbols-outlined">
+            trending_flat
+        </span>
+        <a href="/index.html" class="underline">HOME</a>
+    </li>
     <div class="text-center">
         <h1 class="text-2xl font-bold">
             Simple Req Example
         </h1>
 
-        <button 
-            hx-get="/users" 
-            hx-trigger="click"
-            hx-target="#users-list"
-            hx-confirm="This will fetch users from the express server."
-            hx-indicator="#loading"
-            hx-vals='{"limit": "5"}'
-
+        <button hx-get="/users" hx-trigger="click" hx-target="#users-list"
+            hx-confirm="This will fetch users from the express server." hx-indicator="#loading" hx-vals='{"limit": "5"}'
             class="bg-blue-500 font-bold text-white py-2 px-3 my-5 rounded-lg">
             Fetch Users
         </button>
@@ -33,7 +35,7 @@
 
         <span class="htmx-indicator" id="loading">
             <img src="img/loading.gif" alt="loading.." class="m-auto h-48">
-        </span> 
+        </span>
 
 
     </div>

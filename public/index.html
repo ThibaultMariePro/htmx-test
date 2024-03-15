@@ -8,6 +8,8 @@
         integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
         crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
     <title>HTMX TESTING</title>
 </head>
 
@@ -15,13 +17,27 @@
 
     <h1 class="text-2xl font-bold text-center">HTMX TESTING</h1>
 
-    <ul>
-        <li>
-            <a href="/temperature.html" class="underline" >Temperature Converter</a>
+    <ul class="m-5 flex flex-col">
+        <li
+            class="flex items-center bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold hover:text-indigo-700">
+            <span class="material-symbols-outlined">
+                trending_flat
+            </span>
+            <a href="/temperature.html" class="underline">Temperature Converter</a>
         </li>
-        <li>
-            <a href="/request.html" class="underline" >Fetch Users</a>
+        <li
+            class=" flex items-center bg-gradient-to-tr from-violet-500 to-orange-300 text-transparent bg-clip-text font-bold hover:text-indigo-700">
+            <span class="material-symbols-outlined">
+                trending_flat
+            </span>
+            <a href="/request.html" class="underline">Fetch Users</a>
         </li>
+        <li
+            class="flex items-center  bg-gradient-to-r from-orange-400 to-rose-400 text-transparent  bg-clip-text font-bold hover:text-indigo-700">
+            <span class="material-symbols-outlined">
+                trending_flat
+            </span>
+            <a href="/polling.html" class="underline">Polling</a>
     </ul>
 
 

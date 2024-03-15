@@ -8,18 +8,23 @@
         integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
         crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
     <title>HTMX TESTING</title>
 </head>
 
 <body>
-
-    <h1 class="text-2xl text-center font-bold" >Polling to fetch counter value</h1>
+    <li
+        class="flex items-center bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold hover:text-indigo-700">
+        <span class="material-symbols-outlined">
+            trending_flat
+        </span>
+        <a href="/index.html" class="underline">HOME</a>
+    </li>
+    <h1 class="text-2xl text-center font-bold">Polling to fetch counter value</h1>
     <hr>
     <div class="text-center">
-        <span 
-            hx-get="/poll"
-            hx-trigger="every 5s"
-        >
+        <span hx-get="/poll" hx-trigger="every 5s">
             Loading..
         </span>
     </div>

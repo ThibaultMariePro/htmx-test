@@ -24,8 +24,11 @@
     <h1 class="text-2xl text-center font-bold">Polling to fetch counter value</h1>
     <hr>
     <div class="text-center">
-        <span hx-get="/poll" hx-trigger="every 5s">
+        <span hx-get="/poll" hx-trigger="every 1s" hx-indicator="#loading">
             Loading..
+        </span>
+        <span class="htmx-indicator" id="loading">
+            <img src="img/loading.gif" alt="loading.." class="m-auto h-48">
         </span>
     </div>
 

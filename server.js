@@ -48,9 +48,11 @@ app.post("/convert", (req, res) => {
 // Handle GET request for polling
 let counter = 0;
 app.get("/poll", (req, res) => {
-    counter++;
-    const data = { counter };
-    res.json(data);
+    setTimeout(() => {
+        counter++;
+        const data = { counter };
+        res.json(data);
+    }, 3000);
 });
 
 
@@ -90,9 +92,8 @@ app.post("/search", (req, res) => {
     }, 1000);
 });
 
-// Handle POST request for adding contact from jsonPlaceholder
 
-// Handle POST request for seearching contact
+// Handle POST request for adding contact from jsonPlaceholder
 app.post("/search/api", async (req, res) => {
     const searchTerm = req.body.search.toLowerCase();
     if (!searchTerm) {

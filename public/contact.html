@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <title>HTMX TESTING</title>
+</head>
+
+<body class="bg-blue-200">
+    <li
+        class="flex items-center bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-bold hover:text-indigo-700">
+        <span class="material-symbols-outlined">
+            trending_flat
+        </span>
+        <a href="/index.html" class="underline">HOME</a>
+    </li>
+
+    <h1 class="text-2xl text-center font-bold">Search Contact</h1>
+    <hr>
+
+    <div class="container mx-auto py-8 max-w-lg">
+        <input class="text-gray-200 bg-gray-800 rounded-lg p-2 m-2 rounded-lg w-full" type="search"
+            placeholder="Search contact" name="search" hx-post="/search" hx-trigger="input changed delay:500ms, search"
+            hx-target="#search-result" hx-indicator="#loading" />
+        <input class="text-gray-200 bg-gray-800 rounded-lg p-2 m-2 rounded-lg w-full" type="search"
+            placeholder="Search contact from api" name="search" hx-post="/search/api" hx-trigger="input changed delay:500ms, search"
+            hx-target="#search-result" hx-indicator="#loading" />
+        <span class="htmx-indicator" id="loading">
+            <img src="img/loading.gif" alt="loading.." class="m-auto h-10">
+        </span>
+        <table class="min-w-full divide-y divide-gray-200 m-2 ">
+            <thead class="bg-gray-800 text-white">
+                <tr>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Name
+                    </th>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Email
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="search-result" class=" w-full bg-white divide-y divide-gray-200">
+
+        </table>
+    </div>
+
+</body>
+
+</html>

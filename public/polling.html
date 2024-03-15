@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <script src="https://unpkg.com/htmx.org@1.9.10"
         integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+    <script src="https://unpkg.com/mustache@latest"></script>
 
     <title>HTMX TESTING</title>
 </head>
@@ -24,7 +26,23 @@
     <h1 class="text-2xl text-center font-bold">Polling to fetch counter value</h1>
     <hr>
     <div class="text-center">
-        <span hx-get="/poll" hx-trigger="every 1s" hx-indicator="#loading">
+        <p>This response is in json format, however we use cliend-side templating to render it</p>
+        <pre>
+            <code class="text-black">
+                <template id="mustachio">
+                    {{#data}}
+                    <p class="font-bold"> {{counter}}</p>
+                    {{/data}}
+                    </code>
+                </template>
+            </code>
+        </pre>
+        <span
+            hx-get="/poll" 
+            hx-trigger="every 1s" 
+            hx-indicator="#loading" 
+            hx-ext="client-side-templates"
+            mustache-array-template="mustachio">
             Loading..
         </span>
         <span class="htmx-indicator" id="loading">
@@ -32,6 +50,11 @@
         </span>
     </div>
 
+    <template id="mustachio">
+        {{#data}}
+        <p class="font-bold"> {{counter}}</p>
+        {{/data}}
+    </template>
 </body>
 
 </html>

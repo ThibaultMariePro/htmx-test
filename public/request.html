@@ -26,8 +26,13 @@
             Simple Req Example
         </h1>
 
-        <button hx-get="/users" hx-trigger="click" hx-target="#users-list"
-            hx-confirm="This will fetch users from the express server." hx-indicator="#loading" hx-vals='{"limit": "5"}'
+        <button 
+            hx-get="/users" 
+            hx-trigger="click" 
+            hx-target="#users-list"
+            hx-confirm="This will fetch users from the express server." 
+            hx-indicator="#loading" 
+            hx-vals='{"limit": "5"}'
             class="bg-blue-500 font-bold text-white py-2 px-3 my-5 rounded-lg">
             Fetch Users
         </button>

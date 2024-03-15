@@ -14,7 +14,7 @@ app.listen(3000, () => {
     console.log("Server started on http://localhost:3000");
 });
 
-// Handle Get Request to fetch user 
+// Handle GET Request to fetch user 
 app.get("/users", async (req, res) => {
     setTimeout(async () => {
         const limit = +req.query.limit || 10;
@@ -32,7 +32,7 @@ app.get("/users", async (req, res) => {
     }, 2000);
 });
 
-// Handle Post Request to convert temperature from fahrenheit to celsius
+// Handle POST Request to convert temperature from fahrenheit to celsius
 app.post("/convert", (req, res) => {
     setTimeout(() => {
         const fahrenheit = parseFloat(req.body.fahrenheit);
@@ -122,4 +122,43 @@ app.post("/search/api", async (req, res) => {
         }
         res.send(searchResultHTML);
     }, 1000);
+});
+
+// Handle POST request for email validation
+app.post("/contact/email", (req, res) => {
+    const submittedEmail = req.body.email;
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+    const isValid = {
+        message: "Valid email :)",
+        class: "text-green-700"
+    };
+    const isInvalid = {
+        message: "Please enter a valid email address!",
+        class: "text-red-700"
+    };
+
+    if (!emailRegex.test(submittedEmail)) {
+        res.send(`
+        <div hx-target="this" hx-swap="outerHTML" class="mb-4">
+            <label class="mb-2 block" for="email">Email:</label>
+            <input hx-post="/contact/email" type="email" id="email" name="email" class="border rounded-lg p-2 m-2"
+            value=${submittedEmail} 
+            required />
+            <p class="${isInvalid.class} font-bold">${isInvalid.message}</p>
+        </div>
+            `);
+        return;
+    } else {
+        res.send(`
+        <div hx-target="this" hx-swap="outerHTML" class="mb-4">
+            <label class="mb-2 block" for="email">Email:</label>
+            <input hx-post="/contact/email" type="email" id="email" name="email" class="border rounded-lg p-2 m-2"
+            value=${submittedEmail} 
+            required />
+            <p class="${isValid.class} font-bold">${isValid.message}</p>
+        </div>
+            `);
+    }
+
 });
